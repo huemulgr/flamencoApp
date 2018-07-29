@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -24,6 +25,8 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResolvingResultCallbacks;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 
@@ -37,8 +40,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private TextView identificadorTextView;
 
     private GridView gridView;
-
     public static ArrayList<String> ArrayofName = new ArrayList<String>();
+
+    private FirebaseAuth fireBaseAuth;
+    private FirebaseAuth.AuthStateListener fireBaseAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +65,40 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         emailTextView = (TextView) findViewById(R.id.textViewEmail);
         identificadorTextView = (TextView) findViewById(R.id.textViewIdentificador);
 
+        //photoImageView.set
         gridView = (GridView) findViewById(R.id.gridViewRegistros);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                Toast.makeText(getApplicationContext(),
+                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        fireBaseAuth = FirebaseAuth.getInstance();
+
+        fireBaseAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if(user != null){
+                    setUserData(user);
+                }else{
+                    goLogInScreen();
+                }
+            }
+        };
+    }
+
+    private void setUserData(FirebaseUser user) {
+
+        nameTextView.setText(user.getDisplayName());
+        emailTextView.setText(user.getEmail());
+        identificadorTextView.setText(user.getUid());
+
+        Glide.with(this).load(user.getPhotoUrl()).into(photoImageView);
 
         ArrayofName.add("MAS1");
         ArrayofName.add("MAS2");
@@ -80,37 +118,27 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 android.R.layout.simple_list_item_1, ArrayofName);
 
         gridView.setAdapter(adapter);
-        //Comentario
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View v,
-                                    int position, long id) {
-                Toast.makeText(getApplicationContext(),
-                        ((TextView) v).getText(), Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
 
-        OptionalPendingResult<GoogleSignInResult> opr = Auth.GoogleSignInApi.silentSignIn(googleApiClient);
+        fireBaseAuth.addAuthStateListener(fireBaseAuthListener);
+    }
 
-        if(opr.isDone()){
-            GoogleSignInResult result = opr.get();
-            handleSignInResult(result);
-        }else{
-            opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
-                @Override
-                public void onResult(@NonNull GoogleSignInResult googleSignInResult){
-                    handleSignInResult(googleSignInResult);
-                }
-            });
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(fireBaseAuth!=null){
+            fireBaseAuth.removeAuthStateListener(fireBaseAuthListener);
         }
     }
 
     public void logOut(View view) {
+        fireBaseAuth.signOut();
+
         Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
@@ -124,6 +152,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     public void revoke(View view) {
+        fireBaseAuth.signOut();
+
         Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
             @Override
             public void onResult(@NonNull Status status) {
@@ -134,29 +164,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 }
             }
         });
-    }
-
-    private void handleSignInResult(GoogleSignInResult result) {
-        if(result.isSuccess()) {
-            GoogleSignInAccount account = result.getSignInAccount();
-
-            nameTextView.setText(account.getDisplayName());
-            emailTextView.setText(account.getEmail());
-            identificadorTextView.setText(account.getId());
-
-            Log.d("MIAPP", "Given Name: " + account.getGivenName());
-            Log.d("MIAPP", "Family Name: " + account.getFamilyName());
-            Log.d("MIAPP", "Display Name: " + account.getDisplayName());
-
-            if(account.getPhotoUrl()!=null ) {
-                Log.d("MIAPP", account.getPhotoUrl().toString());
-            }else{
-                Log.d("MIAPP", "No hay imagen del usuario.");
-            }
-
-        }else{
-            goLogInScreen();
-        }
     }
 
     private void goLogInScreen() {
@@ -171,4 +178,5 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
+    
 }

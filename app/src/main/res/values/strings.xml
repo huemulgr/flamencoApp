@@ -21,4 +21,5 @@
     <string name="not_close_session">No puede cerrar sesion</string>
     <string name="not_revoke">No se pudo revocar el acceso</string>
     <string name="not_log_in">No se pudo iniciar sesión.</string>
+    <string name="not_firebase_auth">No se pudo autenticar con firebase</string>
 </resources>
