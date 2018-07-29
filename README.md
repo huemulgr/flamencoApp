@@ -9,3 +9,8 @@ Este repositorio contiene el código fuente de aplicación android del proyecto 
 ## Tecnologia
 Android Studio 3.1.3
 
+
+## Documentacion frameworks
+* https://firebase.google.com/support/release-notes/android
+
+* https://github.com/bumptech/glide
