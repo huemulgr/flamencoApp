@@ -54,7 +54,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .build();
 
         signInButton = (SignInButton) findViewById(R.id.btnSignIn);
-        //signInButton.setSize(SignInButton.SIZE_WIDE);
+        signInButton.setSize(SignInButton.SIZE_STANDARD);
+        signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
