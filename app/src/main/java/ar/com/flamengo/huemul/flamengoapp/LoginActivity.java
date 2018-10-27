@@ -1,12 +1,15 @@
 package ar.com.flamengo.huemul.flamengoapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
@@ -30,6 +33,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private GoogleApiClient googleApiClient;
     private SignInButton signInButton;
     private ProgressBar progressBar;
+    private TextView title;
+    private TextView subtitle;
 
     public static final int SIGN_IN_CODE = 777;
 
@@ -57,7 +62,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
 
+        title = (TextView) findViewById(R.id.textView_title_login);
+        subtitle = (TextView) findViewById(R.id.textView_subtitle_login);
+
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,6 +135,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         progressBar.setVisibility(View.VISIBLE);
         signInButton.setVisibility(View.GONE);
 
+        title.setVisibility(View.GONE);
+        subtitle.setVisibility(View.GONE);
+
         AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
 
         fireBaseAuth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -134,6 +146,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                 progressBar.setVisibility(View.GONE);
                 signInButton.setVisibility(View.VISIBLE);
+                title.setVisibility(View.VISIBLE);
+                subtitle.setVisibility(View.VISIBLE);
 
                 if(!task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), R.string.not_firebase_auth, Toast.LENGTH_SHORT).show();

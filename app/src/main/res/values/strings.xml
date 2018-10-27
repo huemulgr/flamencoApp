@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FlamengoApp</string>
+    <string name="app_name">Ingenieria Huemul</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -22,4 +22,7 @@
     <string name="not_revoke">No se pudo revocar el acceso</string>
     <string name="not_log_in">No se pudo iniciar sesión.</string>
     <string name="not_firebase_auth">No se pudo autenticar con firebase</string>
+    <string name="signOut">Sign Out</string>
+    <string name="title_login">FLAMENCO</string>
+    <string name="subtitle_login">Un solución elegante\na un problema complejo</string>
 </resources>

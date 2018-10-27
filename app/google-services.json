@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "127301181100",
-    "firebase_url": "https://flamengo-c9e97.firebaseio.com",
-    "project_id": "flamengo-c9e97",
-    "storage_bucket": "flamengo-c9e97.appspot.com"
+    "project_number": "922521011116",
+    "firebase_url": "https://flamenco-1410a.firebaseio.com",
+    "project_id": "flamenco-1410a",
+    "storage_bucket": "flamenco-1410a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:127301181100:android:ae5ccbfeeac00d68",
+        "mobilesdk_app_id": "1:922521011116:android:ae5ccbfeeac00d68",
         "android_client_info": {
           "package_name": "ar.com.flamengo.huemul.flamengoapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "127301181100-24vqj5c4qdgv89ag6fub6a004o948lmb.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "ar.com.flamengo.huemul.flamengoapp",
-            "certificate_hash": "0dc9db4799292a5fb81f4a1baf3762b538db3d90"
-          }
-        },
-        {
-          "client_id": "127301181100-1iembtbtecj5bt54gqvphtvne4ee6pjr.apps.googleusercontent.com",
+          "client_id": "922521011116-4ls1jfr6arr21atkplonus7rsgbh1t7s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA4NP4GhLvvXM3TPZPn3JNuDVubuu9KNqA"
+          "current_key": "AIzaSyC8VZNRrNH2vzC-gcWngX7brFIki-ooNW0"
         }
       ],
       "services": {
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "127301181100-1iembtbtecj5bt54gqvphtvne4ee6pjr.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
