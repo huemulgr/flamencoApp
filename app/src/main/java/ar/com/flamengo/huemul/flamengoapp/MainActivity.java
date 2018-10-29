@@ -1,13 +1,22 @@
 package ar.com.flamengo.huemul.flamengoapp;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.NotificationCompat;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -36,11 +45,14 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import ar.com.flamengo.huemul.flamengoapp.adapter.ListViewAdapter;
+import ar.com.flamengo.huemul.flamengoapp.comun.HashMapComparator;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -48,11 +60,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private ImageView photoImageView;
     private TextView nameTextView;
-    //private TextView emailTextView;
-    //private TextView identificadorTextView;
-
-    //private TextView mensajeTextView;
-    //private EditText mensajeEditText;
 
     private TextView textViewNameCompany;
 
@@ -65,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private FirebaseAuth.AuthStateListener fireBaseAuthListener;
 
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-    //private DatabaseReference mensajeRef;
+
     private DatabaseReference statusRegistersMAS;
     private DatabaseReference dataBaseReferenceValidUsers;
 
@@ -97,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
-                if( user!=null ){
+                if(user!=null){
                     setUserData(user);
                     setMasData();
                 }else{
@@ -121,11 +128,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         photoImageView = (ImageView) findViewById(R.id.photoImageView);
 
         nameTextView = (TextView) findViewById(R.id.textViewName);
-        //emailTextView = (TextView) findViewById(R.id.textViewEmail);
-        //identificadorTextView = (TextView) findViewById(R.id.textViewIdentificador);
-
-        //mensajeTextView = (TextView) findViewById(R.id.mensajeTextView);
-        //mensajeEditText = (EditText) findViewById(R.id.mensajeEditText);
 
         textViewNameCompany = (TextView) findViewById(R.id.textViewNameCompany);
 
@@ -135,8 +137,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void setUserData(FirebaseUser user) {
 
         nameTextView.setText(user.getDisplayName());
-        //emailTextView.setText(user.getEmail());
-        //identificadorTextView.setText(user.getUid());
         userEmail = user.getEmail();
         textViewNameCompany.setText("Runfo");
 
@@ -151,6 +151,17 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         adapter = new ListViewAdapter(this, listStatusMas);
 
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                HashMap map = listStatusMas.get(position);
+                String fechaActualizacion = (String) map.get("COLUMNA_1");
+                String nombre = (String) map.get("COLUMNA_2");
+                Toast.makeText(getApplicationContext(), "PUNTO DE SENSADO:\n" + nombre
+                        +" \nULTIMA MEDICION:\n" +  fechaActualizacion, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     @Override
@@ -170,31 +181,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     }
                 });
 
-        //setMensajeRef();
-
         setStatusRegisterMAS();
 
         setListValidUsers();
 
     }
-
-    /*private void setMensajeRef() {
-        mensajeRef = ref.child("mensaje");
-
-        mensajeRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
-
-                mensajeTextView.setText(value);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }*/
 
     private void setStatusRegisterMAS() {
         statusRegistersMAS = ref.child("users").getRef();
@@ -233,6 +224,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                     it.remove(); // avoids a ConcurrentModificationException
                 }
+
+                //Log.d("LISTA_ANTES", listStatusMas.toString());
+                Collections.sort ( listStatusMas , new HashMapComparator() ) ;
+                Log.d("LISTA_DESPUES", listStatusMas.toString());
+
             }
         }
 
@@ -261,8 +257,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         if(this.userEmail !=null && this.userEmail.isEmpty()==false) {
             Map entrada = (Map) validUsers.get(codEmpresa); //this.userEmail);
 
-            Log.d("USUARIOS", entrada.toString());
-
             if(entrada!=null && entrada.isEmpty()==false) {
                 Iterator it = entrada.entrySet().iterator();
 
@@ -272,10 +266,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                     Map.Entry pair = (Map.Entry) it.next();
 
-                    Log.d("DATOS_USUARIOS", pair.toString());
-
                     if( this.validEmail == false && this.userEmail.equalsIgnoreCase(pair.getValue().toString())){
-                        Log.d("VALIDO", pair.getValue().toString());
                         this.validEmail = true;
                     }
 
@@ -289,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         Map dataRegister = (Map) pair.getValue();
 
-        Log.d("Datos_Registros: ", pair.getKey() + " = " + dataRegister.toString());
+        //Log.d("Datos_Registros: ", pair.getKey() + " = " + dataRegister.toString());
 
         String orden = getDataOfRegister(dataRegister, "orden");
 
@@ -301,11 +292,15 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         String temperatura = getDataOfRegister(dataRegister, "valor");
 
-        Log.d("Datos_Obtenidos: ", "id: "+ orden +
+        String actualizado = getDataOfRegister(dataRegister, "actualizado");
+
+        /*Log.d("Datos_Obtenidos: ", "id: "+ orden +
                 " - fechaHoraActualizado: " + fechaHoraActualizado +
                 " - nombre: " + nombre +
                 " - temperatura: " + temperatura +
-                " - estado: "+estado );
+                " - estado: "+estado +
+                " - actualizado: " + actualizado
+        );*/
 
         HashMap temp = new HashMap();
 
@@ -313,6 +308,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         temp.put("COLUMNA_2", nombre);
         temp.put("COLUMNA_3", temperatura);
         temp.put("COLUMNA_4", estado);
+
+        temp.put("ORDEN", orden);
+        temp.put("ACTUALIZADO", actualizado);
 
         return temp;
     }
@@ -387,7 +385,49 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void goLogInScreen() {
         Intent intent = new Intent(this, LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+
         startActivity(intent);
+
+        showNotificacionInLogIn();
+    }
+
+    private void showNotificacionInLogIn() {
+
+        Intent intent = new Intent(this, MainActivity.class);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "123456789")
+                .setSmallIcon(R.mipmap.flamencolaunchapk)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setContentTitle("TITULO")
+                .setContentText("ESTE ES UN MSJS HARDCODEADO")
+                .setChannelId("123456789")
+                .setContentIntent(pendingIntent);
+
+        NotificationManager mNotificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "flamengo";
+            String description = "descripcion";
+
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("123456789", name, importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviors after this
+
+            mNotificationManager.createNotificationChannel(channel);
+        }
+
+        mNotificationManager.notify(123456789, builder.build());
+
+
+        Log.d("NOTIFICACION",  mNotificationManager.toString());
     }
 
     @Override
@@ -397,10 +437,4 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         startActivity(intent);
     }
 
-    /*public void modificar(View view){
-        String mensaje = mensajeEditText.getText().toString();
-        mensajeRef.setValue(mensaje);
-
-        mensajeEditText.setText("");
-    }*/
 }

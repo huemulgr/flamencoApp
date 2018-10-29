@@ -55,13 +55,13 @@ public class ListViewAdapter extends BaseAdapter {
         TextView columna1 = (TextView) convertView.findViewById(R.id.columna_1);
         TextView columna2 = (TextView) convertView.findViewById(R.id.columna_2);
         TextView columna3 = (TextView) convertView.findViewById(R.id.columna_3);
-        TextView columna4 = (TextView) convertView.findViewById(R.id.columna_4);
+        //TextView columna4 = (TextView) convertView.findViewById(R.id.columna_4);
 
         //Rellenamos los valores de cada columna de la fila
-        columna1.setText((String)map.get("COLUMNA_1"));
+        columna1.setText((String)map.get("ACTUALIZADO"));
         columna2.setText((String)map.get("COLUMNA_2"));
         columna3.setText((String)map.get("COLUMNA_3"));
-        columna4.setText((String)map.get("COLUMNA_4"));
+        //columna4.setText((String)map.get("COLUMNA_4"));
 
         String estadoRegistro = (String)map.get("COLUMNA_4");
 
@@ -69,7 +69,11 @@ public class ListViewAdapter extends BaseAdapter {
             convertView.setBackgroundColor(Color.RED);
         }else if("MALB".equalsIgnoreCase(estadoRegistro)){
             convertView.setBackgroundColor(Color.YELLOW);
+        }else{
+            convertView.setBackgroundColor(Color.TRANSPARENT);
         }
+
+        //Log.d("DATO: ", map.toString());
 
         return convertView;
     }

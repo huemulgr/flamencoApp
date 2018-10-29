@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -16,15 +17,17 @@ import ar.com.flamengo.huemul.flamengoapp.R;
 
 public class MyFirebaseMessaging extends FirebaseMessagingService {
 
+    private static final String CHANNEL_ID = "123456789";
+
     public static final String ANDROID_CHANNEL_ID = "ar.com.flamengo.huemul.flamengoapp.ANDROID";
     public static final CharSequence ANDROID_CHANNEL_NAME = "ANDROID CHANNEL";
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
 
         Log.d("PRIMER_PLANO", remoteMessage.getNotification().getBody() );
 
-        super.onMessageReceived(remoteMessage);
         showNotification(remoteMessage.getNotification());
     }
 
@@ -32,18 +35,31 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
         try {
             PendingIntent pendingIntent = getPendingIntent();
 
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "default")
-                    .setSmallIcon(R.mipmap.ic_launcher_round)
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                    .setSmallIcon(R.mipmap.flamencolaunchapk)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
                     .setContentTitle(notification.getTitle())
                     .setContentText(notification.getBody())
-                    .setChannelId("default")
-                    .setAutoCancel(true)
+                    .setChannelId(CHANNEL_ID)
+                    //.setAutoCancel(true)
                     .setContentIntent(pendingIntent);
 
-            NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                CharSequence name = "flamengo";
+                String description = "descripcion";
+
+                int importance = NotificationManager.IMPORTANCE_DEFAULT;
+                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+                channel.setDescription(description);
+                // Register the channel with the system; you can't change the importance r other notification behaviors after this
+
+                notificationManager.createNotificationChannel(channel);
+            }
 
             notificationManager.notify(0, builder.build());
-
 
         }catch (Exception e){
             Log.e("ERROR_NOTI", e.getMessage());
@@ -52,8 +68,13 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
 
     private PendingIntent getPendingIntent() {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        return PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_ONE_SHOT);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+
+        return pendingIntent;
     }
 
     @Override
