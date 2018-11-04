@@ -5,7 +5,6 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -56,6 +55,8 @@ import ar.com.flamengo.huemul.flamengoapp.comun.HashMapComparator;
 
 public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
+    public static String datoQR;
+
     private GoogleApiClient googleApiClient;
 
     private ImageView photoImageView;
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private DatabaseReference statusRegistersMAS;
     private DatabaseReference dataBaseReferenceValidUsers;
+    private DatabaseReference listenerNotificacionPush;
 
     private String userEmail;
     private final static String codEmpresa = "1000";
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Main-1", "Entre al o Create");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -106,6 +109,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
                 if(user!=null){
                     setUserData(user);
+                    setMasData();
+                } else if(datoQR!=null) {
+                    Log.d("Main-2", "Entre aqui-" + datoQR);
+                    userEmail = "jona.fer11@gmail.com";
                     setMasData();
                 }else{
                     goLogInScreen();
@@ -185,6 +192,25 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         setListValidUsers();
 
+        listenerAlertsForDoNotificacionPush();
+    }
+
+    private void listenerAlertsForDoNotificacionPush() {
+        listenerNotificacionPush = ref.child("notificacion").getRef();
+
+        listenerNotificacionPush.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Get map of users in datasnapshot
+                //collectDataRegisters((Map<String,Object>) dataSnapshot.getValue());
+                showANewNotificacionPush((Map<String,Object>) dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //handle databaseError
+            }
+        });
     }
 
     private void setStatusRegisterMAS() {
@@ -205,6 +231,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void collectDataRegisters(Map<String,Object> users) {
+
         if(this.userEmail !=null
                 && this.userEmail.isEmpty()==false && users != null ) {
 
@@ -252,7 +279,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void collectDataValidUsers(Map<String,Object> validUsers) {
-        ArrayList<String> temperaturas = new ArrayList<>();
 
         if(this.userEmail !=null && this.userEmail.isEmpty()==false) {
             Map entrada = (Map) validUsers.get(codEmpresa); //this.userEmail);
@@ -387,11 +413,38 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         startActivity(intent);
-
-        showNotificacionInLogIn();
     }
 
-    private void showNotificacionInLogIn() {
+    private void showANewNotificacionPush(Map<String, Object> notificaciones) {
+
+        if(this.userEmail !=null
+                && this.userEmail.isEmpty()==false && notificaciones != null ) {
+
+            Map entrada = notificaciones.get(codEmpresa)!=null? (Map) notificaciones.get(codEmpresa) : null;
+
+            if(entrada!=null && entrada.isEmpty()==false) {
+                Iterator it = entrada.entrySet().iterator();
+
+                while (it.hasNext()) {
+
+                    Map.Entry pair = (Map.Entry) it.next();
+
+                    createNotificationPush(pair);
+
+                    it.remove(); // avoids a ConcurrentModificationException
+                }
+
+            }
+        }
+    }
+
+    private void createNotificationPush(Map.Entry pair) {
+
+        Log.d("PUSH_PUSH", pair.toString());
+
+        Map dataRegister = (Map) pair.getValue();
+        String mensaje = getDataOfRegister(dataRegister, "mensaje");
+        String titulo = getDataOfRegister(dataRegister, "titulo");
 
         Intent intent = new Intent(this, MainActivity.class);
 
@@ -403,8 +456,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "123456789")
                 .setSmallIcon(R.mipmap.flamencolaunchapk)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setContentTitle("TITULO")
-                .setContentText("ESTE ES UN MSJS HARDCODEADO")
+                .setContentTitle(titulo)
+                .setContentText(mensaje)
                 .setChannelId("123456789")
                 .setContentIntent(pendingIntent);
 

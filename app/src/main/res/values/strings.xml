@@ -25,4 +25,5 @@
     <string name="signOut">Sign Out</string>
     <string name="title_login">FLAMENCO</string>
     <string name="subtitle_login">Un solución elegante\na un problema complejo</string>
+    <string name="msj_boton_qr">Login QR</string>
 </resources>
