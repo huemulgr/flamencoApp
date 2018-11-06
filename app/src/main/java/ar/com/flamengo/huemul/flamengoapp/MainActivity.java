@@ -16,7 +16,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -47,7 +46,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import ar.com.flamengo.huemul.flamengoapp.adapter.ListViewAdapter;
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private ListView listView;
     private ListViewAdapter adapter;
     private ArrayList<HashMap> listStatusMas;
-    private ArrayList<HashMap> listValidUser;
 
     private FirebaseAuth fireBaseAuth;
     private FirebaseAuth.AuthStateListener fireBaseAuthListener;
@@ -75,17 +72,14 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
 
     private DatabaseReference statusRegistersMAS;
-    private DatabaseReference dataBaseReferenceValidUsers;
     private DatabaseReference listenerNotificacionPush;
 
     private String userEmail;
     private final static String codEmpresa = "1000";
 
-    private boolean validEmail = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Main-1", "Entre al o Create");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -111,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                     setUserData(user);
                     setMasData();
                 } else if(datoQR!=null) {
-                    Log.d("Main-2", "Entre aqui-" + datoQR);
                     userEmail = "jona.fer11@gmail.com";
                     setMasData();
                 }else{
@@ -142,7 +135,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     }
 
     private void setUserData(FirebaseUser user) {
-
         nameTextView.setText(user.getDisplayName());
         userEmail = user.getEmail();
         textViewNameCompany.setText("Runfo");
@@ -153,7 +145,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void setMasData(){
 
         listStatusMas =  new ArrayList<HashMap>();
-        listValidUser =  new ArrayList<HashMap>();
 
         adapter = new ListViewAdapter(this, listStatusMas);
 
@@ -190,8 +181,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
         setStatusRegisterMAS();
 
-        setListValidUsers();
-
         listenerAlertsForDoNotificacionPush();
     }
 
@@ -211,6 +200,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 //handle databaseError
             }
         });
+
+        Log.d("ELIMINAR_PUSH", "Eliminare los msjs push");
+
+        listenerNotificacionPush.child(codEmpresa).removeValue();
     }
 
     private void setStatusRegisterMAS() {
@@ -259,47 +252,6 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             }
         }
 
-    }
-
-    private void setListValidUsers() {
-        dataBaseReferenceValidUsers = ref.child("valid_users").getRef();
-
-        dataBaseReferenceValidUsers.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                //Get map of users in datasnapshot
-                collectDataValidUsers((Map<String,Object>) dataSnapshot.getValue());
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                //handle databaseError
-            }
-        });
-    }
-
-    private void collectDataValidUsers(Map<String,Object> validUsers) {
-
-        if(this.userEmail !=null && this.userEmail.isEmpty()==false) {
-            Map entrada = (Map) validUsers.get(codEmpresa); //this.userEmail);
-
-            if(entrada!=null && entrada.isEmpty()==false) {
-                Iterator it = entrada.entrySet().iterator();
-
-                listValidUser.clear();
-
-                while (it.hasNext()) {
-
-                    Map.Entry pair = (Map.Entry) it.next();
-
-                    if( this.validEmail == false && this.userEmail.equalsIgnoreCase(pair.getValue().toString())){
-                        this.validEmail = true;
-                    }
-
-                    it.remove(); // avoids a ConcurrentModificationException
-                }
-            }
-        }
     }
 
     private HashMap populateData(Map.Entry pair) {

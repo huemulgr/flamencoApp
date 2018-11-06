@@ -28,6 +28,16 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
 
@@ -36,12 +46,24 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private ProgressBar progressBar;
     private TextView title;
     private TextView subtitle;
+    private TextView msjInvalid;
+
     private Button scan_btn;
 
     public static final int SIGN_IN_CODE = 777;
 
+    private boolean validEmail;
+    private String userEmail;
+
+    private final static String codEmpresa = "1000";
+
     private FirebaseAuth fireBaseAuth;
     private FirebaseAuth.AuthStateListener fireBaseAuthListener;
+    private DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+
+    private DatabaseReference dataBaseReferenceValidUsers;
+
+    private ArrayList<HashMap> listValidUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +88,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         title = (TextView) findViewById(R.id.textView_title_login);
         subtitle = (TextView) findViewById(R.id.textView_subtitle_login);
+
+        msjInvalid = (TextView) findViewById(R.id.id_msj_invalid);
+        msjInvalid.setVisibility(View.GONE);
 
         scan_btn = (Button) findViewById(R.id.btn_scan);
 
@@ -95,7 +120,20 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if(user!=null){
-                    goMainScreen();
+                    userEmail = user.getEmail();
+                    listValidUser =  new ArrayList<HashMap>();
+
+                    setListValidUsers();
+
+
+                    if(validEmail==true) {
+                        goMainScreen();
+                    }else{
+                        Log.d("LOGIN", "Mail: " + userEmail + " -  validEmail: "+ validEmail);
+                        msjInvalid.setVisibility(View.VISIBLE);
+                        msjInvalid.setText("El mail gmail ingresado no es un mail valido. Intente de nuevo con un mail valido o comuniquese con el administrador.");
+
+                    }
                 }
             }
         };
@@ -106,6 +144,54 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         super.onStart();
 
         fireBaseAuth.addAuthStateListener(fireBaseAuthListener);
+
+        setListValidUsers();
+    }
+
+    private void setListValidUsers() {
+
+        dataBaseReferenceValidUsers = ref.child("valid_users").getRef();
+
+        dataBaseReferenceValidUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //Get map of users in datasnapshot
+                collectDataValidUsers((Map<String,Object>) dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //handle databaseError
+            }
+        });
+    }
+
+    private void collectDataValidUsers(Map<String,Object> validUsers) {
+
+        Log.d("VAKIDO11: ", validUsers.toString());
+
+        if(this.userEmail !=null && this.userEmail.isEmpty()==false) {
+            Map entrada = (Map) validUsers.get(codEmpresa); //this.userEmail);
+
+            Log.d("VAKIDO: ", entrada.toString());
+
+            if(entrada!=null && entrada.isEmpty()==false) {
+                Iterator it = entrada.entrySet().iterator();
+
+                listValidUser.clear();
+
+                while (it.hasNext()) {
+
+                    Map.Entry pair = (Map.Entry) it.next();
+
+                    if( this.validEmail == false && this.userEmail.equalsIgnoreCase(pair.getValue().toString())){
+                        this.validEmail = true;
+                    }
+
+                    it.remove(); // avoids a ConcurrentModificationException
+                }
+            }
+        }
     }
 
     @Override
@@ -145,9 +231,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         progressBar.setVisibility(View.VISIBLE);
         signInButton.setVisibility(View.GONE);
-
+        scan_btn.setVisibility(View.GONE);
         title.setVisibility(View.GONE);
         subtitle.setVisibility(View.GONE);
+        msjInvalid.setVisibility(View.GONE);
 
         AuthCredential credential = GoogleAuthProvider.getCredential(signInAccount.getIdToken(), null);
 
@@ -157,8 +244,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                 progressBar.setVisibility(View.GONE);
                 signInButton.setVisibility(View.VISIBLE);
+                scan_btn.setVisibility(View.VISIBLE);
                 title.setVisibility(View.VISIBLE);
                 subtitle.setVisibility(View.VISIBLE);
+
+                Log.d("LOGIN", "Esta login");
 
                 if(!task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), R.string.not_firebase_auth, Toast.LENGTH_SHORT).show();

@@ -6,7 +6,6 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="MainActivity" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
@@ -17,33 +16,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b593b6f5-fa50-4b79-9f13-d99f41e851bc" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_zxing_core_3_2_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__me_dm7_barcodescanner_core_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__me_dm7_barcodescanner_zxing_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_scan_code.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskJars.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_16_0_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_base_15_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_android_gms_play_services_auth_base_15_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -100,17 +85,36 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
+            <state relative-caret-position="73">
+              <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3423#3971#0" expanded="true" />
+                <element signature="e#3970#3971#0" expanded="true" />
+                <element signature="e#4092#4413#0" expanded="true" />
+                <element signature="e#4412#4413#0" expanded="true" />
                 <element signature="method#declareReferenceOfAttributeFromActivity#0;class#MainActivity#0" />
-                <element signature="method#listenerAlertsForDoNotificacionPush#0;class#MainActivity#0" />
-                <element signature="method#setListValidUsers#0;class#MainActivity#0" />
+                <element signature="e#5272#5835#0" expanded="true" />
+                <element signature="e#5834#5835#0" expanded="true" />
+                <element signature="e#6068#6537#0" expanded="true" />
+                <element signature="e#6536#6537#0" expanded="true" />
+                <element signature="method#setStatusRegisterMAS#0;class#MainActivity#0" />
+                <element signature="method#collectDataRegisters#0;class#MainActivity#0" />
+                <element signature="method#populateData#0;class#MainActivity#0" />
                 <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
                 <element signature="method#onStop#0;class#MainActivity#0" />
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
+                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
+                <element signature="e#11145#11161#0" expanded="true" />
+                <element signature="method#logOut#0;class#MainActivity#0" />
+                <element signature="e#11425#11794#0" expanded="true" />
+                <element signature="e#11697#11723#0" expanded="true" />
+                <element signature="e#11793#11794#0" expanded="true" />
                 <element signature="method#revoke#0;class#MainActivity#0" />
+                <element signature="e#11941#12303#0" expanded="true" />
+                <element signature="e#12213#12232#0" expanded="true" />
+                <element signature="e#12302#12303#0" expanded="true" />
+                <element signature="method#goLogInScreen#0;class#MainActivity#0" />
                 <element signature="method#onConnectionFailed#0;class#MainActivity#0" />
               </folding>
             </state>
@@ -123,17 +127,17 @@
             <state />
           </provider>
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="1683">
-              <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+            <state relative-caret-position="1823">
+              <caret line="111" column="37" selection-start-line="111" selection-start-column="37" selection-end-line="111" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScanCodeActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="22" />
+            <state relative-caret-position="190">
+              <caret line="250" column="28" selection-start-line="250" selection-start-column="28" selection-end-line="250" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -150,26 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Toast</find>
-      <find>NotificationCompat</find>
-      <find>Intent</find>
-      <find>FirebaseInstanceId.getInstance()</find>
-      <find>setAutoInitEnabled</find>
-      <find>FirebaseMessaging</find>
-      <find>DATOS_USUARIOS</find>
-      <find>USUARIOS</find>
-      <find>nuevo</find>
-      <find>Datos_Registros</find>
-      <find>Datos_Obtenidos</find>
-      <find>DATO</find>
-      <find>target</find>
-      <find>NOTIFICACION</find>
-      <find>PRIMER_PLANO</find>
-      <find>notificationManager</find>
-      <find>titulo</find>
-      <find>primer</find>
-      <find>token</find>
-      <find>PRIMER</find>
       <find>showNotificacionInLogIn</find>
       <find>PUSH_PU</find>
       <find>PUSH_P</find>
@@ -180,6 +164,26 @@
       <find>Main-2</find>
       <find>REGISTROS</find>
       <find>nuevo_token</find>
+      <find>mail</find>
+      <find>PRINCIPAL</find>
+      <find>Entre. El</find>
+      <find>PRINCIPIO</find>
+      <find>AuthStateListener</find>
+      <find>INVALIDO</find>
+      <find>collectDataValidUsers</find>
+      <find>fireBaseAuthListener = new FirebaseAuth.AuthStateListener() {</find>
+      <find>ref</find>
+      <find>FirebaseDatabase.getInstance(</find>
+      <find>validEmail</find>
+      <find>Lista valido</find>
+      <find>validEm</find>
+      <find>VAKIDO</find>
+      <find>VAKIDO11</find>
+      <find>TextView</find>
+      <find>LoginActivity</find>
+      <find>LOGIN</find>
+      <find>Esta lo</find>
+      <find>Eliminare</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2479,10 +2483,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/services/MyFirebaseMessaging.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java" />
       </list>
     </option>
@@ -2500,22 +2504,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ANDROID" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="ANDROID" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="ar.com.flamengo.huemul.flamengoapp" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
@@ -2546,16 +2534,6 @@
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
-            <path>
-              <item name="ANDROID" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-            <path>
-              <item name="ANDROID" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -2576,11 +2554,27 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ANDROID" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="ANDROID" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="ar.com.flamengo.huemul.flamengoapp" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="7SEISSJRDURGLBFU" />
+    <property name="device.picker.selection" value="Nexus_5X_API_27" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
@@ -2769,24 +2763,25 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="7" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50378215" side_tool="true" weight="0.6895425" />
+      <window_info anchor="right" id="Preview" order="8" sideWeight="0.49509802" weight="0.52874434" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.33333334" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32843137" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.49621785" weight="0.5620915" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" sideWeight="0.49621785" visible="true" weight="0.5588235" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31240544" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4962963" visible="true" weight="0.25189108" />
       <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49848714" weight="0.44281045" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.32980332" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Structure" order="1" sideWeight="0.5037037" side_tool="true" weight="0.25189108" />
       <window_info anchor="right" id="Device File Explorer" order="10" sideWeight="0.50490195" side_tool="true" weight="0.52874434" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -2794,7 +2789,6 @@
       <window_info anchor="right" id="Assistant" order="9" weight="0.6075353" />
       <window_info anchor="right" id="StringPreview" order="0" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="right" id="Preview" order="8" sideWeight="0.49509802" weight="0.52874434" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -2802,6 +2796,40 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" id="StringPreview" order="0" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Build" order="11" sideWeight="0.49848714" weight="0.44281045" />
+      <window_info id="Build Variants" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.33333334" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Captures" order="4" weight="0.25" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50378215" side_tool="true" weight="0.6895425" />
+      <window_info anchor="right" id="Preview" order="8" sideWeight="0.49509802" weight="0.52874434" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
+      <window_info anchor="right" id="Device File Explorer" order="10" sideWeight="0.50490195" side_tool="true" weight="0.52874434" />
+      <window_info anchor="right" id="Assistant" order="9" weight="0.6075353" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" sideWeight="0.49621785" visible="true" weight="0.3627451" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32843137" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32843137" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.32980332" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2526475" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -2848,36 +2876,38 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/adapter/ListViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2346">
           <caret line="138" column="35" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3423#3971#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4092#4413#0" expanded="true" />
+            <element signature="e#4412#4413#0" expanded="true" />
             <element signature="method#declareReferenceOfAttributeFromActivity#0;class#MainActivity#0" />
-            <element signature="method#listenerAlertsForDoNotificacionPush#0;class#MainActivity#0" />
-            <element signature="method#setListValidUsers#0;class#MainActivity#0" />
+            <element signature="e#5272#5835#0" expanded="true" />
+            <element signature="e#5834#5835#0" expanded="true" />
+            <element signature="e#6068#6537#0" expanded="true" />
+            <element signature="e#6536#6537#0" expanded="true" />
+            <element signature="method#setStatusRegisterMAS#0;class#MainActivity#0" />
+            <element signature="method#collectDataRegisters#0;class#MainActivity#0" />
+            <element signature="method#populateData#0;class#MainActivity#0" />
             <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
             <element signature="method#onStop#0;class#MainActivity#0" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
+            <element signature="e#11145#11161#0" expanded="true" />
+            <element signature="method#logOut#0;class#MainActivity#0" />
+            <element signature="e#11425#11794#0" expanded="true" />
+            <element signature="e#11697#11723#0" expanded="true" />
+            <element signature="e#11793#11794#0" expanded="true" />
             <element signature="method#revoke#0;class#MainActivity#0" />
+            <element signature="e#11941#12303#0" expanded="true" />
+            <element signature="e#12213#12232#0" expanded="true" />
+            <element signature="e#12302#12303#0" expanded="true" />
+            <element signature="method#goLogInScreen#0;class#MainActivity#0" />
             <element signature="method#onConnectionFailed#0;class#MainActivity#0" />
           </folding>
         </state>
@@ -2916,13 +2946,32 @@
           <caret line="151" column="34" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3423#3971#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4092#4413#0" expanded="true" />
+            <element signature="e#4412#4413#0" expanded="true" />
             <element signature="method#declareReferenceOfAttributeFromActivity#0;class#MainActivity#0" />
-            <element signature="method#listenerAlertsForDoNotificacionPush#0;class#MainActivity#0" />
-            <element signature="method#setListValidUsers#0;class#MainActivity#0" />
+            <element signature="e#5272#5835#0" expanded="true" />
+            <element signature="e#5834#5835#0" expanded="true" />
+            <element signature="e#6068#6537#0" expanded="true" />
+            <element signature="e#6536#6537#0" expanded="true" />
+            <element signature="method#setStatusRegisterMAS#0;class#MainActivity#0" />
+            <element signature="method#collectDataRegisters#0;class#MainActivity#0" />
+            <element signature="method#populateData#0;class#MainActivity#0" />
             <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
             <element signature="method#onStop#0;class#MainActivity#0" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
+            <element signature="e#11145#11161#0" expanded="true" />
+            <element signature="method#logOut#0;class#MainActivity#0" />
+            <element signature="e#11425#11794#0" expanded="true" />
+            <element signature="e#11697#11723#0" expanded="true" />
+            <element signature="e#11793#11794#0" expanded="true" />
             <element signature="method#revoke#0;class#MainActivity#0" />
+            <element signature="e#11941#12303#0" expanded="true" />
+            <element signature="e#12213#12232#0" expanded="true" />
+            <element signature="e#12302#12303#0" expanded="true" />
+            <element signature="method#goLogInScreen#0;class#MainActivity#0" />
             <element signature="method#onConnectionFailed#0;class#MainActivity#0" />
           </folding>
         </state>
@@ -3185,23 +3234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="38" column="28" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -3209,19 +3241,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/widget/TextView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="718" column="44" selection-start-line="718" selection-start-column="8" selection-end-line="718" selection-end-column="44" />
+          <folding>
+            <element signature="e#19799#19800#0" expanded="true" />
+            <element signature="e#19850#19851#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1823">
+          <caret line="111" column="37" selection-start-line="111" selection-start-column="37" selection-end-line="111" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="250" column="28" selection-start-line="250" selection-start-column="28" selection-end-line="250" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/java/util/Iterator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="115" column="33" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
+        <state relative-caret-position="73">
+          <caret line="202" lean-forward="true" selection-start-line="202" selection-end-line="202" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3423#3971#0" expanded="true" />
+            <element signature="e#3970#3971#0" expanded="true" />
+            <element signature="e#4092#4413#0" expanded="true" />
+            <element signature="e#4412#4413#0" expanded="true" />
             <element signature="method#declareReferenceOfAttributeFromActivity#0;class#MainActivity#0" />
-            <element signature="method#listenerAlertsForDoNotificacionPush#0;class#MainActivity#0" />
-            <element signature="method#setListValidUsers#0;class#MainActivity#0" />
+            <element signature="e#5272#5835#0" expanded="true" />
+            <element signature="e#5834#5835#0" expanded="true" />
+            <element signature="e#6068#6537#0" expanded="true" />
+            <element signature="e#6536#6537#0" expanded="true" />
+            <element signature="method#setStatusRegisterMAS#0;class#MainActivity#0" />
+            <element signature="method#collectDataRegisters#0;class#MainActivity#0" />
+            <element signature="method#populateData#0;class#MainActivity#0" />
             <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
             <element signature="method#onStop#0;class#MainActivity#0" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
+            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
+            <element signature="e#11145#11161#0" expanded="true" />
+            <element signature="method#logOut#0;class#MainActivity#0" />
+            <element signature="e#11425#11794#0" expanded="true" />
+            <element signature="e#11697#11723#0" expanded="true" />
+            <element signature="e#11793#11794#0" expanded="true" />
             <element signature="method#revoke#0;class#MainActivity#0" />
+            <element signature="e#11941#12303#0" expanded="true" />
+            <element signature="e#12213#12232#0" expanded="true" />
+            <element signature="e#12302#12303#0" expanded="true" />
+            <element signature="method#goLogInScreen#0;class#MainActivity#0" />
             <element signature="method#onConnectionFailed#0;class#MainActivity#0" />
           </folding>
         </state>
