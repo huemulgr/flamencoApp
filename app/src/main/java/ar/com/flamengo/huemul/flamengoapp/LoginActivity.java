@@ -37,6 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -48,11 +49,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private TextView subtitle;
     private TextView msjInvalid;
 
+    public static boolean invalidQR;
+
     private Button scan_btn;
 
     public static final int SIGN_IN_CODE = 777;
 
-    private boolean validEmail;
     private String userEmail;
 
     private final static String codEmpresa = "1000";
@@ -63,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private DatabaseReference dataBaseReferenceValidUsers;
 
-    private ArrayList<HashMap> listValidUser;
+    private List<String> listValidUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,31 +114,19 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             }
         });
 
-        fireBaseAuth = FirebaseAuth.getInstance();
 
+        fireBaseAuth = FirebaseAuth.getInstance();
         fireBaseAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-
                 if(user!=null){
                     userEmail = user.getEmail();
-                    listValidUser =  new ArrayList<HashMap>();
-
-                    setListValidUsers();
-
-
-                    if(validEmail==true) {
-                        goMainScreen();
-                    }else{
-                        Log.d("LOGIN", "Mail: " + userEmail + " -  validEmail: "+ validEmail);
-                        msjInvalid.setVisibility(View.VISIBLE);
-                        msjInvalid.setText("El mail gmail ingresado no es un mail valido. Intente de nuevo con un mail valido o comuniquese con el administrador.");
-
-                    }
                 }
             }
         };
+
+        listValidUser =  new ArrayList<String>();
     }
 
     @Override
@@ -168,29 +158,22 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
     private void collectDataValidUsers(Map<String,Object> validUsers) {
 
-        Log.d("VAKIDO11: ", validUsers.toString());
+        Map entrada = (Map) validUsers.get(codEmpresa); //this.userEmail);
 
-        if(this.userEmail !=null && this.userEmail.isEmpty()==false) {
-            Map entrada = (Map) validUsers.get(codEmpresa); //this.userEmail);
+        if(entrada!=null && entrada.isEmpty()==false) {
+            Iterator it = entrada.entrySet().iterator();
 
-            Log.d("VAKIDO: ", entrada.toString());
+            listValidUser.clear();
 
-            if(entrada!=null && entrada.isEmpty()==false) {
-                Iterator it = entrada.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry) it.next();
 
-                listValidUser.clear();
+                listValidUser.add(pair.getValue().toString());
 
-                while (it.hasNext()) {
-
-                    Map.Entry pair = (Map.Entry) it.next();
-
-                    if( this.validEmail == false && this.userEmail.equalsIgnoreCase(pair.getValue().toString())){
-                        this.validEmail = true;
-                    }
-
-                    it.remove(); // avoids a ConcurrentModificationException
-                }
+                it.remove(); // avoids a ConcurrentModificationException
             }
+
+            Log.d("VALEDE: ", "LISTA DE USUARIOS: " + listValidUser.toString());
         }
     }
 
@@ -248,7 +231,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 title.setVisibility(View.VISIBLE);
                 subtitle.setVisibility(View.VISIBLE);
 
-                Log.d("LOGIN", "Esta login");
+                for (String usuarioValido : listValidUser) {
+                    if(usuarioValido.equalsIgnoreCase(userEmail)){
+                        goMainScreen();
+                    }
+                }
+
+                msjInvalid.setVisibility(View.VISIBLE);
+                msjInvalid.setText("El mail gmail ingresado no es un mail valido. Intente de nuevo con un mail valido o comuniquese con el administrador.");
 
                 if(!task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), R.string.not_firebase_auth, Toast.LENGTH_SHORT).show();
