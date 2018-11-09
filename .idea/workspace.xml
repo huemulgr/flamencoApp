@@ -27,8 +27,6 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -85,8 +83,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2825">
-              <caret line="366" column="30" selection-start-line="366" selection-start-column="30" selection-end-line="366" selection-end-column="30" />
+            <state relative-caret-position="235">
+              <caret line="355" column="20" selection-start-line="347" selection-start-column="4" selection-end-line="360" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3423#3971#0" expanded="true" />
@@ -105,12 +103,10 @@
                 <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
                 <element signature="method#onStop#0;class#MainActivity#0" />
                 <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
-                <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
                 <element signature="e#11137#11153#0" expanded="true" />
                 <element signature="e#11417#11786#0" expanded="true" />
                 <element signature="e#11689#11715#0" expanded="true" />
                 <element signature="e#11785#11786#0" expanded="true" />
-                <element signature="method#revoke#0;class#MainActivity#0" />
                 <element signature="e#11933#12295#0" expanded="true" />
                 <element signature="e#12205#12224#0" expanded="true" />
                 <element signature="e#12294#12295#0" expanded="true" />
@@ -121,20 +117,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2035">
-              <caret line="51" column="35" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="35" />
+            <state relative-caret-position="102">
+              <caret line="246" column="39" selection-start-line="246" selection-start-column="39" selection-end-line="246" selection-end-column="39" />
+              <folding>
+                <element signature="e#3992#4257#0" expanded="true" />
+                <element signature="e#4256#4257#0" expanded="true" />
+                <element signature="e#4297#4507#0" expanded="true" />
+                <element signature="e#4506#4507#0" expanded="true" />
+                <element signature="e#4594#4925#0" expanded="true" />
+                <element signature="e#4924#4925#0" expanded="true" />
+                <element signature="method#setListValidUsers#0;class#LoginActivity#0" />
+                <element signature="method#collectDataValidUsers#0;class#LoginActivity#0" />
+                <element signature="e#7298#7317#0" expanded="true" />
+                <element signature="e#8035#9235#0" expanded="true" />
+                <element signature="e#8939#8965#0" expanded="true" />
+                <element signature="e#9234#9235#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScanCodeActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menu_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScanCodeActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="41" column="22" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="22" />
+            <state relative-caret-position="144">
+              <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -151,12 +171,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nuevo_token</find>
-      <find>mail</find>
-      <find>PRINCIPAL</find>
-      <find>Entre. El</find>
-      <find>PRINCIPIO</find>
-      <find>AuthStateListener</find>
       <find>INVALIDO</find>
       <find>collectDataValidUsers</find>
       <find>fireBaseAuthListener = new FirebaseAuth.AuthStateListener() {</find>
@@ -180,7 +194,13 @@
       <find>ES UN EXITO</find>
       <find>qr</find>
       <find>Valor QR:</find>
+      <find>Dato_QR</find>
+      <find>GOOGLE_SIGN_IN</find>
       <find>datoQR</find>
+      <find>Entre de nuevo</find>
+      <find>CLICKEANDO</find>
+      <find>onActivityResult</find>
+      <find>DESLOGUEO</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2483,8 +2503,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -2540,6 +2560,18 @@
               <item name="ANDROID" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="ANDROID" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ANDROID" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="menu" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -2752,7 +2784,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="703" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -2761,10 +2793,11 @@
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50378215" side_tool="true" weight="0.6895425" />
+      <window_info anchor="right" id="Preview" order="8" sideWeight="0.49509802" weight="0.52874434" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.33333334" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32843137" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32843137" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="10" sideWeight="0.49621785" visible="true" weight="0.32749563" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="10" sideWeight="0.49621785" visible="true" weight="0.5245098" />
       <window_info id="Captures" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="2" />
@@ -2779,7 +2812,6 @@
       <window_info anchor="right" id="Assistant" order="9" weight="0.6075353" />
       <window_info anchor="right" id="StringPreview" order="0" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="right" id="Preview" order="8" sideWeight="0.49509802" weight="0.52874434" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
@@ -2833,23 +2865,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/adapter/ListViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2882,12 +2897,10 @@
             <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
             <element signature="method#onStop#0;class#MainActivity#0" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
             <element signature="e#11137#11153#0" expanded="true" />
             <element signature="e#11417#11786#0" expanded="true" />
             <element signature="e#11689#11715#0" expanded="true" />
             <element signature="e#11785#11786#0" expanded="true" />
-            <element signature="method#revoke#0;class#MainActivity#0" />
             <element signature="e#11933#12295#0" expanded="true" />
             <element signature="e#12205#12224#0" expanded="true" />
             <element signature="e#12294#12295#0" expanded="true" />
@@ -3040,16 +3053,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-27/android/content/Intent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
@@ -3189,10 +3192,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/3e1e3359d4cd216e03ccca8ddc0145ad/jars/classes.jar!/android/support/v4/app/FragmentActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="431" column="16" selection-start-line="431" selection-start-column="16" selection-end-line="431" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_list.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2825">
-          <caret line="366" column="30" selection-start-line="366" selection-start-column="30" selection-end-line="366" selection-end-column="30" />
+        <state relative-caret-position="235">
+          <caret line="355" column="20" selection-start-line="347" selection-start-column="4" selection-end-line="360" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3423#3971#0" expanded="true" />
@@ -3211,12 +3246,10 @@
             <element signature="method#getDataOfRegister#0;class#MainActivity#0" />
             <element signature="method#onStop#0;class#MainActivity#0" />
             <element signature="method#onCreateOptionsMenu#0;class#MainActivity#0" />
-            <element signature="method#onOptionsItemSelected#0;class#MainActivity#0" />
             <element signature="e#11137#11153#0" expanded="true" />
             <element signature="e#11417#11786#0" expanded="true" />
             <element signature="e#11689#11715#0" expanded="true" />
             <element signature="e#11785#11786#0" expanded="true" />
-            <element signature="method#revoke#0;class#MainActivity#0" />
             <element signature="e#11933#12295#0" expanded="true" />
             <element signature="e#12205#12224#0" expanded="true" />
             <element signature="e#12294#12295#0" expanded="true" />
@@ -3228,15 +3261,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2035">
-          <caret line="51" column="35" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/ar/com/flamengo/huemul/flamengoapp/ScanCodeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="41" column="22" selection-start-line="41" selection-start-column="15" selection-end-line="41" selection-end-column="22" />
+        <state relative-caret-position="102">
+          <caret line="246" column="39" selection-start-line="246" selection-start-column="39" selection-end-line="246" selection-end-column="39" />
+          <folding>
+            <element signature="e#3992#4257#0" expanded="true" />
+            <element signature="e#4256#4257#0" expanded="true" />
+            <element signature="e#4297#4507#0" expanded="true" />
+            <element signature="e#4506#4507#0" expanded="true" />
+            <element signature="e#4594#4925#0" expanded="true" />
+            <element signature="e#4924#4925#0" expanded="true" />
+            <element signature="method#setListValidUsers#0;class#LoginActivity#0" />
+            <element signature="method#collectDataValidUsers#0;class#LoginActivity#0" />
+            <element signature="e#7298#7317#0" expanded="true" />
+            <element signature="e#8035#9235#0" expanded="true" />
+            <element signature="e#8939#8965#0" expanded="true" />
+            <element signature="e#9234#9235#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

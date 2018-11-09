@@ -21,6 +21,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApi;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
@@ -50,6 +52,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private TextView msjInvalid;
 
     public static boolean invalidQR;
+
+    private boolean invalidMail = false;
 
     private Button scan_btn;
 
@@ -195,6 +199,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        Log.d("CLICKEANDO", "se presiono el boton de login gmail");
+
         if(requestCode==SIGN_IN_CODE){
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             handleSignInResult(result);
@@ -211,6 +217,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     }
 
     private void fireBaseAuthWithGoogle(GoogleSignInAccount signInAccount) {
+
+        Log.d("MIRANDO", "Entre de nuevo - " + signInAccount.getIdToken());
 
         progressBar.setVisibility(View.VISIBLE);
         signInButton.setVisibility(View.GONE);
@@ -231,20 +239,41 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 title.setVisibility(View.VISIBLE);
                 subtitle.setVisibility(View.VISIBLE);
 
+                boolean invalid = true;
+
                 for (String usuarioValido : listValidUser) {
-                    if(usuarioValido.equalsIgnoreCase(userEmail)){
+                    if(usuarioValido.equalsIgnoreCase(userEmail) == true){
                         goMainScreen();
+                        invalid = false;
                     }
                 }
 
-                msjInvalid.setVisibility(View.VISIBLE);
-                msjInvalid.setText("El mail gmail ingresado no es un mail valido. Intente de nuevo con un mail valido o comuniquese con el administrador.");
+                if(invalid==true) {
+                    msjInvalid.setVisibility(View.VISIBLE);
+                    msjInvalid.setText("El mail gmail ingresado no es un mail valido. Intente de nuevo con un mail valido o comuniquese con el administrador.");
+
+                    revoke();
+                }
 
                 if(!task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), R.string.not_firebase_auth, Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    public void revoke() {
+        Log.d("DESLOGUEO", "Realizo e deslogueo. QUe tiene usermail " + this.userEmail);
+
+        fireBaseAuth.signOut();
+
+        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback(new ResultCallback<Status>() {
+            @Override
+            public void onResult(@NonNull Status status) {
+            }
+        });
+
+        invalidMail = false;
     }
 
     private void goMainScreen() {
